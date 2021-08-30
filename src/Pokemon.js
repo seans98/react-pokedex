@@ -4,32 +4,8 @@ import { Typography, CircularProgress, Button } from "@material-ui/core";
 import { toFirstCharuppercase } from "./constants";
 import axios from "axios";
 import Chip from "@material-ui/core/Chip";
-import { makeStyles, withStyles } from "@material-ui/core/styles";
+import {withStyles } from "@material-ui/core/styles";
 import LinearProgress from '@material-ui/core/LinearProgress';
-import { grey } from "@material-ui/core/colors";
-
-const useStyles = makeStyles({
-  typeColors: {
-    bug: "#729f3f",
-    dragon: "#53a4cf",
-    fairy: "#fdb9e9",
-    fire: "#fd7d24",
-    ghost: "#7b62a3",
-    ground: "#f7de3f",
-    normal: "#a4acaf",
-    pyschic: "#f366b9",
-    steel: "#9eb7b",
-    dark: "#707070",
-    electric: "#eed535",
-    fighting: "#d56723",
-    flying: "#3dc7ef",
-    grass: "#9bcc50",
-    ice: "#51c4e7",
-    poison: "#b97fc9",
-    rock: "#a38c21",
-    water: "#4592c4",
-  },
-});
 
 
 const BorderLinearProgress = withStyles((theme) => ({
@@ -52,7 +28,6 @@ const Pokemon = (props) => {
   const { params } = match;
   const { pokemonId } = params;
   const [pokemon, setPokemon] = useState(undefined);
-  const classes = useStyles();
 
   useEffect(() => {
     axios
@@ -97,7 +72,6 @@ const Pokemon = (props) => {
               <Chip
                 label={`${name}`}
                 color="primary"
-                style={{ backgroundColor: classes.typeColors.steel }}
               />
             </Typography>
           );
